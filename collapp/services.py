@@ -3,14 +3,13 @@ from rest_framework.renderers import JSONRenderer
 from .models.modelsApp.CustomerModel import CustomerAccountModel,CustomerAddressModel
 from .serializers import *
 
-
 def get_colapp_mst(id):
-    print("Inside Colapp Services")
-    obj=CustomerAccountModel.objects.get(id=id)
-    serializer=CustomerAccountModelSerializer(obj)
+    print("Inside Customer Services")
+    obj=CustomerModel.objects.get(id=id)
+    serializer=CustomerModelSerializer(obj)
     print('serializer',serializer)
          
-    legal_data=JSONRenderer().render(serializer.data)
-    print('legal_data',legal_data)
+    data=JSONRenderer().render(serializer.data)
+    print('customer_data',data)
 
-    return legal_data
+    return data

@@ -24,22 +24,45 @@ class CollappRouter:
             return db == 'collapp_db'
         return None
 
-class LegalRouter:
-    route_app_labels = {'legal'}
+# class Vegeta:
+#     route_app_labels = {'vegeta'}
+
+#     def db_for_read(self, model, **hints):
+#         if model._meta.app_label in self.route_app_labels:
+#             return 'vegeta_db'
+#         return None
+
+#     def db_for_write(self, model, **hints):
+#         if model._meta.app_label in self.route_app_labels:
+#             return 'vegeta_db'
+#         return None
+
+#     def allow_migrate(self, db, app_label, model_name=None, **hints):
+#         if app_label in self.route_app_labels:
+#             return db == 'vegeta_db'
+#         return None
+
+
+class CommunicationRouter:
+    route_app_labels = {'communication'}
 
     def db_for_read(self, model, **hints):
         if model._meta.app_label in self.route_app_labels:
-            return 'legal_db'
+            return 'communication_db'
         return None
 
     def db_for_write(self, model, **hints):
         if model._meta.app_label in self.route_app_labels:
-            return 'legal_db'
+            return 'communication_db'
         return None
 
     def allow_migrate(self, db, app_label, model_name=None, **hints):
         if app_label in self.route_app_labels:
-            return db == 'legal_db'
+            return db == 'communication_db'
         return None
 
 
+
+# Referrence :
+# Cros-Relation DB & foriegn-key patch
+# https://stackoverflow.com/questions/23268895/cross-database-foreign-key-error
